@@ -1,2 +1,2 @@
 # artwork
-hare your art online. 
+Share your art online. 
