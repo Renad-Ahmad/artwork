@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,19 +9,9 @@
         <title>Artwork</title>
     </head>
     <body>
-        <div>
-            <label for="art_pic">Choose a picture:</label>
-            <input type="file" id="art_pic" name="art_pic" accept="image/*" />
-        </div>
-        <div>
-          <button onclick="">Submit</button>
-        </div>
-        <!-- <label for="file-ip-1">
-              <img id="file-ip-1-preview" src="https://i.ibb.co/ZVFsg37/default.png">
-              <button type="button" class="imgRemove" onclick="myImgRemoveFunctionOne()">test</button>
-             </label> -->
-        <!-- <input type="file" name="img_one" id="file-ip-1" accept="image/*" onchange="showPreviewOne(event);" /> -->
-        <!-- <small class="small">Use the &#8634; icon to reset the image</small>  -->
+        <div class="all_images" ></div>
+        <input type='file' accept="image/*" />
+        <button onclick="add()">Add new art work</button>
 
         <script src="./JS/main.js"></script>
     </body>
