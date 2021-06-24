@@ -9,9 +9,16 @@ function add() {
         let div = document.createElement("div");
         var image = document.createElement("img");
         let time = document.createElement("small");
+        let remove = document.createElement("INPUT");
 
         image.setAttribute("height", "400");
         image.setAttribute("width", "400");
+
+        time.innerHTML = date + "\n";
+
+        remove.setAttribute("type", "button");
+        remove.setAttribute("value","DELETE");
+        remove.setAttribute("onclick","removeElement(this)");
 
         let reader = new FileReader();
 
@@ -23,13 +30,21 @@ function add() {
             reader.readAsDataURL(e);
         } else {
             image.src = "";
-        }
-        time.innerHTML = date + "\n"; 
+        } 
 
         div.appendChild(image);
         div.appendChild(time); 
+        div.appendChild(remove);
         allTmages[i].appendChild(div);
     }
     console.log(image);
 }
 
+
+function removeElement(element){
+    //the button.the new div.all-posts div
+    //child  .parent     .parent
+    element.parentElement.parentElement
+               //button.new div
+    .removeChild(element.parentElement);
+}
