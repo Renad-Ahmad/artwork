@@ -1,20 +1,23 @@
 const allTmages = document.getElementsByClassName("all_images");
+let test = document.getElementById("test");
 
 function newInput(){
-    let test = document.getElementById("test");
     let newInputImg = document.createElement("INPUT");
     let addButton = document.createElement("INPUT");
+    let divForFileINPUT = document.createElement("div");
 
+    divForFileINPUT.setAttribute("id","uniqueID");
 
     newInputImg.setAttribute("type", "file");
     newInputImg.setAttribute("accept","image/*");
-    test.appendChild(newInputImg);
-
+    divForFileINPUT.appendChild(newInputImg);
 
     addButton.setAttribute("type", "button");
     addButton.setAttribute("value","Add new art work");
     addButton.setAttribute("onclick","add()");
-    test.appendChild(addButton);
+    divForFileINPUT.appendChild(addButton);
+
+    test.appendChild(divForFileINPUT);
 }
 
 function add() {
@@ -54,14 +57,11 @@ function add() {
         div.appendChild(remove);
         allTmages[i].appendChild(div);
     }
-    console.log(image);
+    let un_id = document.getElementById("uniqueID");
+
+    test.removeChild(un_id);
 }
 
-
-function addPara(){
-    let paragraph = document.createElement("p");
-
-}
 
 function removeElement(element){
     //the button.the new div.all-posts div
@@ -70,4 +70,3 @@ function removeElement(element){
                //button.new div
     .removeChild(element.parentElement);
 }
-
