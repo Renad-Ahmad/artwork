@@ -1,10 +1,18 @@
 const allTmages = document.getElementsByClassName("all_images");
 let test = document.getElementById("test");
 
+function addtexterea(elm){
+    let newTextarea = document.createElement("textarea");
+    newTextarea.setAttribute("type", "text");
+    newTextarea.setAttribute("value", "value");
+    newTextarea.setAttribute("id", "txtArea");
+    newTextarea.setAttribute("placeholder", "Write a caption ...");
+    elm.appendChild(newTextarea);
+}
+
 function newInput(){
     let divForFileINPUT = document.createElement("div");
     let newInputImg = document.createElement("INPUT");
-    let newTextarea = document.createElement("textarea");
     let addButton = document.createElement("INPUT");
     let cancelButton = document.createElement("INPUT");
 
@@ -14,11 +22,7 @@ function newInput(){
     newInputImg.setAttribute("accept","image/*");
     divForFileINPUT.appendChild(newInputImg);
 
-    newTextarea.setAttribute("type", "text");
-    newTextarea.setAttribute("value", "value");
-    newTextarea.setAttribute("id", "txtArea");
-    newTextarea.setAttribute("placeholder", "Write a caption ...");
-    divForFileINPUT.appendChild(newTextarea);
+    addtexterea(divForFileINPUT);
 
     addButton.setAttribute("type", "button");
     addButton.setAttribute("value","Add");
@@ -72,9 +76,9 @@ function add() {
             image.src = "";
         } 
         div.appendChild(image);
+        addParag(div);
         div.appendChild(time); 
         div.appendChild(remove);
-        addParag(div);
         allTmages[i].appendChild(div);
     }
     let un_id = document.getElementById("uniqueID");
