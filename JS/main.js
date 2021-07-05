@@ -2,9 +2,11 @@ const allTmages = document.getElementsByClassName("all_images");
 let test = document.getElementById("test");
 
 function newInput(){
-    let newInputImg = document.createElement("INPUT");
-    let addButton = document.createElement("INPUT");
     let divForFileINPUT = document.createElement("div");
+    let newInputImg = document.createElement("INPUT");
+    let newTextarea = document.createElement("textarea");
+    let addButton = document.createElement("INPUT");
+    let cancelButton = document.createElement("INPUT");
 
     divForFileINPUT.setAttribute("id","uniqueID");
 
@@ -12,12 +14,38 @@ function newInput(){
     newInputImg.setAttribute("accept","image/*");
     divForFileINPUT.appendChild(newInputImg);
 
+    newTextarea.setAttribute("type", "text");
+    newTextarea.setAttribute("value", "value");
+    newTextarea.setAttribute("placeholder", "Write a caption ...");
+    divForFileINPUT.appendChild(newTextarea);
+
     addButton.setAttribute("type", "button");
-    addButton.setAttribute("value","Add new art work");
+    addButton.setAttribute("value","Add");
     addButton.setAttribute("onclick","add()");
     divForFileINPUT.appendChild(addButton);
 
+    cancelButton.setAttribute("type", "button");
+    cancelButton.setAttribute("value","cancel");
+    cancelButton.setAttribute("onclick","cancel()");
+    divForFileINPUT.appendChild(cancelButton);
+
     test.appendChild(divForFileINPUT);
+}
+
+function addParag(div){
+    let text = document.querySelector("textarea");
+
+    for(let i = 0; i < text.length; i++){
+        let e = text[i];
+        console.log(e);
+        //if the input not empty 
+         if(e.value != ""){
+            let paragraph = document.createElement("p");
+            paragraph.innerHTML = e.value; 
+            div.appendChild(paragraph);
+         }
+    }
+
 }
 
 function add() {
@@ -55,13 +83,17 @@ function add() {
         div.appendChild(image);
         div.appendChild(time); 
         div.appendChild(remove);
+        addParag(div);
         allTmages[i].appendChild(div);
     }
     let un_id = document.getElementById("uniqueID");
-
     test.removeChild(un_id);
 }
 
+function cancel(){
+    let un_id = document.getElementById("uniqueID");
+    test.removeChild(un_id);
+}
 
 function removeElement(element){
     //the button.the new div.all-posts div
