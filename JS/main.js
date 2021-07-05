@@ -16,6 +16,7 @@ function newInput(){
 
     newTextarea.setAttribute("type", "text");
     newTextarea.setAttribute("value", "value");
+    newTextarea.setAttribute("id", "txtArea");
     newTextarea.setAttribute("placeholder", "Write a caption ...");
     divForFileINPUT.appendChild(newTextarea);
 
@@ -32,20 +33,11 @@ function newInput(){
     test.appendChild(divForFileINPUT);
 }
 
-function addParag(div){
-    let text = document.querySelector("textarea");
-
-    for(let i = 0; i < text.length; i++){
-        let e = text[i];
-        console.log(e);
-        //if the input not empty 
-         if(e.value != ""){
-            let paragraph = document.createElement("p");
-            paragraph.innerHTML = e.value; 
-            div.appendChild(paragraph);
-         }
-    }
-
+function addParag(elm){
+    let text = document.getElementById("txtArea").value;
+    let paragraph = document.createElement("p");
+    paragraph.innerHTML = text;
+    elm.appendChild(paragraph);
 }
 
 function add() {
@@ -79,16 +71,17 @@ function add() {
         } else {
             image.src = "";
         } 
-
         div.appendChild(image);
         div.appendChild(time); 
         div.appendChild(remove);
         addParag(div);
         allTmages[i].appendChild(div);
     }
+    addParag()
     let un_id = document.getElementById("uniqueID");
     test.removeChild(un_id);
 }
+
 
 function cancel(){
     let un_id = document.getElementById("uniqueID");
