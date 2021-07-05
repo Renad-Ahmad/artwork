@@ -77,7 +77,6 @@ function add() {
         addParag(div);
         allTmages[i].appendChild(div);
     }
-    addParag()
     let un_id = document.getElementById("uniqueID");
     test.removeChild(un_id);
 }
